@@ -6,7 +6,9 @@ as a string.
 def get_book_text (path):
     with open(path) as f:
         text = f.read()
-    return text
+        words = text.split()
+        word_count = len(words)
+        return word_count
 
 """
 Uses get_book_text 
@@ -16,7 +18,7 @@ to print the entire contents of the book
 to the console.
 """
 def main ():
-    print(get_book_text ("./books/frankenstein.txt"))
+    print(f"{get_book_text("./books/frankenstein.txt")} words found in the document")
     
 
 main()
