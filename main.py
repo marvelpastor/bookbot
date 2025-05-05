@@ -1,3 +1,6 @@
+from stats import count_words
+from stats import count_char
+
 """ 
 It takes a filepath as input 
 and returns the contents of the file 
@@ -6,9 +9,7 @@ as a string.
 def get_book_text (path):
     with open(path) as f:
         text = f.read()
-        words = text.split()
-        word_count = len(words)
-        return word_count
+        return text
 
 """
 Uses get_book_text 
@@ -18,7 +19,10 @@ to print the entire contents of the book
 to the console.
 """
 def main ():
-    print(f"{get_book_text("./books/frankenstein.txt")} words found in the document")
+    path = "books/frankenstein.txt"
+    text = get_book_text(path)
+    print (f"{count_words(text)} words found in the document")
+    print (f"{count_char(text)}")
     
 
 main()
